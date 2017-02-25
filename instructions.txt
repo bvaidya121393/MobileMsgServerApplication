@@ -1,0 +1,24 @@
+Requirements before running
+1)Eclipse IDE
+2)MYSQL DB
+Queries to be run on MYSQL before proceeding
+CREATE DATABASE `test`;
+CREATE TABLE `credentials` (
+  `destinationId` int(20) NOT NULL AUTO_INCREMENT,
+  `mobNo` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `createdOnDt` datetime DEFAULT NULL,
+  `isAvailable` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'N',
+   PRIMARY KEY (`destinationId`)
+) ;
+
+CREATE TABLE `messagelog` (
+  `logId` int(20) NOT NULL AUTO_INCREMENT,
+  `fk_destinationId` int(20) NOT NULL,
+  `message` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `publishingDate` datetime DEFAULT NULL,
+   PRIMARY KEY (`logId`),
+   CONSTRAINT `FK_credentials_credentials` FOREIGN KEY (`fk_destinationId`) REFERENCES `credentials` (`destinationId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ;
+
+Instructions for running:-
+1)Load the Spring Boot application on a server or run MobileMsgServerApplication.java as a Spring Boot application

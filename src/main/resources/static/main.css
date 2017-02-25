@@ -1,0 +1,27 @@
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.header
+{
+    text-transform: uppercase;
+    color: #952262;
+    font: bold 24px arial;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    background-color: orange;
+}
+
+.title
+{
+    font-weight: normal;
+}
+.name
+{
+    display: inline;
+    max-width: 370px;
+    vertical-align: top; /*for firefox*/
+}
